@@ -20,6 +20,8 @@ Algoritmo Ejemplo_Notas2
 	Escribir "Examen final (0 a 40)"
 	Leer examenfinal 
 	
+	//condicion para que se ejecute el calculo
+	
 	datosOK <- (parcial1 >= 0) Y (parcial1 <= 30)
 	datosOK <- datosOK Y (parcial2 >= 0) Y (parcial2 <= 30)
 	datosOK <- datosOK Y (examenfinal >= 0) Y (examenfinal <= 40)
