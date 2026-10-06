@@ -4,7 +4,9 @@ Algoritmo Ejemplo_Notas2
 	//Declarar Variables
 	Definir NOTA_MINIMA Como Entero
 	Definir parcial1, parcial2, examenfinal, notafinal Como Real
-	Definir aprobado Como Logico
+	Definir aprobado, datosOK Como Logico
+	
+	
 	
 	
 	//Establecer datos
@@ -16,15 +18,28 @@ Algoritmo Ejemplo_Notas2
 	Escribir "Segundo parcial (0 a 30)"
 	Leer parcial2
 	Escribir "Examen final (0 a 40)"
-	Leer examenfinal
+	Leer examenfinal 
+	
+	datosOK <- (parcial1 >= 0) Y (parcial1 <= 30)
+	datosOK <- datosOK Y (parcial2 >= 0) Y (parcial2 <= 30)
+	datosOK <- datosOK Y (examenfinal >= 0) Y (examenfinal <= 40)
+	
+	
+	
 	
 	//Cálculo
+	Si datosOK Entonces
+     Escribir "Datos validos " , datosOK
 	notafinal <- parcial1 + parcial2 + examenfinal
 	aprobado <- notafinal >= NOTA_MINIMA
 	
-	//Resultados
 	Escribir "Nota final: ", notafinal
 	Escribir "Aprobado: ", aprobado
+SiNo
+	Escribir "Datos incorrectos intente de nuevo ", datosOK
+	FInSI
+	//Resultados
+
 	
 	
 FinAlgoritmo
