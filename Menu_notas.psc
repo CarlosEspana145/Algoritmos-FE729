@@ -8,23 +8,34 @@ Algoritmo Menu_notas
 	Escribir "3. Salir"
 	Leer entrada
 	
+Repetir
+	
 	Segun entrada Hacer
 		1:
+			Repetir
 			Escribir "Ingrese una nota entre 0 y 100"
 			Leer nota
 			Si nota > 100 o nota < 0 Entonces
 				Escribir "La nota ingresada no es válida"
-				
-			SiNo
-				 Escribir "La nota ingresada es: ", nota
-			
 			FinSi
+		    Hasta Que nota  >= 0 Y nota <= 100
+		
 			
 		2:
-			Escribir "La categoría es: "
+			Si nota >= 61 Entonces
+				Escribir "Aprobado"
+			SiNo
+				Escribir "Reprobado"
+			FinSi
+			
 			
 		3: 
 			Escribir "Saliendo del menú..."
+			
+		De Otro Modo:
+			Escribir "La opcion no es valida"
+			Escribir "Ingrese una opcion del 1 al 3"
+			
 	FinSegun
-	
+Hasta Que entrada = 3
 FinAlgoritmo
