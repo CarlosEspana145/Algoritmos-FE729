@@ -1,6 +1,6 @@
 Algoritmo Menu_notas
 	Definir entrada, NOTA_MIN Como Entero
-	
+Repetir
 	Escribir "Ingrese una opción"
 	
 	Escribir "1. Ingrese nota "
@@ -8,7 +8,7 @@ Algoritmo Menu_notas
 	Escribir "3. Salir"
 	Leer entrada
 	
-Repetir
+
 	
 	Segun entrada Hacer
 		1:
@@ -18,7 +18,7 @@ Repetir
 			Si nota > 100 o nota < 0 Entonces
 				Escribir "La nota ingresada no es válida"
 			FinSi
-		    Hasta Que nota  >= 0 Y nota <= 100
+		    Hasta Que nota  >= 0 y nota <= 100
 		
 			
 		2:
