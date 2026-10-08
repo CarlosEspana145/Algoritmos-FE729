@@ -46,15 +46,67 @@ SubProceso mostrarnotas(ar)
 			FinSi
 		FinSi
 	FinPara
-	
 FinSubProceso
+	
+Funcion prom <- promedioclass(ar)
+	Definir prom,sumnot Como Real
+	sumnot <- 0
+	
+	
+	Para i <- 1 Hasta 5 Hacer
+		sumnot <- sumnot + ar[i]
+	FinPara
+	
+	prom <- sumnot / 5
+	 
+		
+FinFuncion
+
+Funcion aprob <- estudiantesaprobados(ar)
+	Definir i, aprob Como Entero
+	aprob <- 0
+	Para i <- 1 Hasta 5 Hacer
+		Si ar[i] > 60 Entonces
+			aprob <- aprob + 1
+		FinSi
+	FinPara
+	
+FinFuncion
+
+Funcion masalt <- notamasalta(ar)
+	Definir masalt Como Real
+	masalt <- 0
+	Para i <- 1 Hasta 5 Hacer
+		Si ar[i] > masalt Entonces
+			masalt <- ar[i]
+		FinSi
+	FinPara
+res <- alto
+FinFuncion
+
+Subproceso mostrarpromedio(prom)
+	Escribir "El promedio de notas es: ", prom
+FinSubProceso
+
+Subproceso mostraraprobados(ap)
+	Escribir "Alumnos que aprobaron el curso: ", ap
+FinSubProceso
+
+Subproceso mostrarnotamasalta(alt)
+	Escribir "La nota más alta fue: ", alt
+FinSubProceso
+	
+
 
 
 
 Algoritmo Sistema_de_Notas
-	Definir op Como Entero
-	Definir nota Como Real
+	Definir op,aprobados Como Entero
+	Definir nota, promedio, altanota Como Real
+	Definir Ingresonotas Como Logico
 	Dimension nota[5]
+	
+	Ingresonotas = falso
 	
 Repetir
 	Menu
@@ -65,17 +117,37 @@ Repetir
 	Segun op Hacer
 		1:
 			Escribir "Ha elegido ingresar notas"
+			Ingresonotas = Verdadero
 			
 				declararnotas(nota)
 				
 			
 			
 		2:
-			Escribir "Ha elegido mostrar notas y categorías"
-			    mostrarnotas(nota)
+			Si Ingresonotas
+				Escribir "Ha elegido mostrar notas y categorías"
+				mostrarnotas(nota)
+			SiNo
+				Escribir "Por favor ingrese las notas desde la opcion 1 antes de verlas en la opcion 2"
+			FinSi
+				
+				
+			
 			
 		3:
-			Escribir "Ha elegido Estadística global"
+			Si Ingresonotas
+				Escribir "Ha elegido Estadística global"
+				promedio <- promedioclass(nota)
+				mostrarpromedio(promedio)
+				aprobados <- estudiantesaprobados(nota)
+				mostraraprobados(aprobados)
+				altanota <- notamasalta(nota)
+				mostrarnotamasalta(altanota)
+			SiNo
+				Escribir "Por favor ingrese las notas desde la opción 1 antes de ver las estadísticas en la opción 3"
+			FinSi
+			
+			
 			
 		4:
 			Escribir "Ha elegido ingresar puntos extra"
